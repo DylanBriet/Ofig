@@ -16,12 +16,25 @@ router.get('/', mainController.homePage);
 router.get('/article/:id', mainController.articlePage);
 
 
-router.get('/favoris', (req, res) => {
-    res.render('favoris', { bookmarks: req.session.bookmarks });
-  });
+const dataMapper = require('./dataMapper');
 
-  router.get('/bookmarks/add/:id', bookmarksController.addBookmark);
-  router.get('/bookmarks/remove/:id', bookmarksController.deleteBookmark);
+router.get('/favoris', async (req, res) => {
+  try {
+    const categoriesCount = await dataMapper.getCountByCategory();
+    const averageScore = await dataMapper.getAverageReviewScoreForFigurines();
+    res.render('favoris', {
+      bookmarks: req.session.bookmarks,
+      categoriesCount,
+      averageScore
+    });
+  } catch (error) {
+    res.status(500).send('Erreur lors de la récupération des données');
+  }
+});
+
+ router.get('/category/:categoryName', mainController.categoryPage);
+ router.get('/bookmarks/add/:id', bookmarksController.addBookmark);
+ router.get('/bookmarks/remove/:id', bookmarksController.deleteBookmark);
 
 // on exporte le router 
 module.exports = router;

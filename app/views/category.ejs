@@ -1,0 +1,19 @@
+<%- include('./partials/header.ejs') %>
+
+<%- include('./partials/leftMenu.ejs') %>
+
+<h1>Figurines dans la catégorie : Les <%= categoryName %></h1>
+<div class="figurines-list">
+  <% figurines.forEach(figurine => { %>
+    <div class="figurine-card">
+      <img src="/images/<%= figurine.name.toLowerCase().replace(/\s+/g, '-') %>.png" alt="<%= figurine.name %>" class="figurine-image">
+      <h3 class="figurine-name"><%= figurine.name %></h3>
+      <p class="figurine-description"><%= figurine.description %></p>
+      <p class="figurine-size">Taille: <%= figurine.size %> cm</p>
+      <p class="figurine-price">Prix: $<%= figurine.price.toFixed(2) %></p>
+      <p class="figurine-category">Catégorie: <%= figurine.category %></p>
+
+    </div>
+  <% }) %>
+</div>
+<%- include('./partials/footer.ejs') %>
