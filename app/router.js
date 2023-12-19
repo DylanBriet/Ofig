@@ -1,3 +1,5 @@
+const { Router } = require('express');
+
 const express = require('express');
 
 // on importe nos controllers

@@ -1,3 +1,5 @@
+BEGIN;
+
 -- Figurine
 
 DROP TABLE IF EXISTS "review";
@@ -58,3 +60,5 @@ INSERT INTO "review" ("id", "author", "note", "title", "message", "figurine_id")
 (15,'Magalie',1, 'Un ratâge !', 'Les proportions ne correspondent pas à la photo. Très déçue.' ,6),
 (16,'Antoinette',0, 'A éviter !', 'La figurine est arrivée cassée ! Malgré les réparations, elle reste moche.' ,6),
 (17,'Vincent',2, 'Assez décu', 'Malheureusement, la figurine ne représente pas fidèlement le personnage.' ,6);
+
+COMMIT;
