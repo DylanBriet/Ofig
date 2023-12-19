@@ -19,7 +19,7 @@ app.set('views', './app/views');
 
 
 // servir les fichiers statiques qui sont dans "integration"
-app.use(express.static('integration'));
+app.use(express.static(__dirname + '/integration'));
 
 
 // routage !

@@ -13,7 +13,7 @@ const router = express.Router();
 router.get('/', mainController.homePage);
 
 // page article
-router.get('/article', mainController.articlePage);
+router.get('/article/:id', mainController.articlePage);
 
 // page favoris
 router.get('/bookmarks', bookmarksController.bookmarksPage );

@@ -5,33 +5,33 @@
 
 <div class="col-lg-9">
 
-    <div class="row">
-      <div class="col-lg-6">
-        <img class="" src="./images/aerith.png" alt="">
-      </div>
-
-      <div class="col-lg-6">
-        <div class="card">
-          <div class="card-body">
-              <h3 class="card-title">
-                Aerith
-                <div class="badge badge-pill badge-gentil">Gentil</div>
-              </h3>
-              <p class="card-text">Taille réelle : 35cm</p>
-              <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam, porro sunt quis sed ut facere consequatur quidem magni pariatur repellat eius? Incidunt voluptatem porro exercitationem asperiores maiores voluptatibus necessitatibus. Nobis fuga eaque aliquam quod, voluptatem minus illo necessitatibus at placeat delectus quos distinctio natus ipsum cumque amet repellat quo quidem.</p>
-              <p class="card-text">3
-                Note moyenne : &#9733; &#9733; &#9733; &#9733; &#9734;
-                <br>
-                <a href="#" data-toggle="modal" data-target="#reviewsModal">Détails des avis</a>
-              </p>
-              <h5>$24.99</h5>
-              <p class="card-text">
-                <a href="#" class="link-add-bookmarks">+ Ajouter aux favoris</a>
-              </p>
-          </div>
+  <div class="row">
+    <div class="col-lg-6">
+      <img class="" src="/images/<%= article.name.toLowerCase() %>.png" alt="<%= article.name %>">
+    </div>
+  
+    <div class="col-lg-6">
+      <div class="card">
+        <div class="card-body">
+            <h3 class="card-title">
+              <%= article.name %>
+              <div class="badge badge-pill <%= article.category === 'Méchant' ? 'badge-méchant' : 'badge-gentil' %>"><%= article.category %></div>
+            </h3>
+            <p class="card-text"><%= article.size %></p>
+            <p class="card-text"><%= article.description %></p>
+            <p class="card-text">
+              Note moyenne : &#9733; &#9733; &#9733; &#9733; &#9734;
+              <br>
+              <a href="#" data-toggle="modal" data-target="#reviewsModal">Détails des avis</a>
+            </p>
+            <h5>$<%= article.price %></h5>
+            <p class="card-text">
+              <a href="#" class="link-add-bookmarks">+ Ajouter aux favoris</a>
+            </p>
         </div>
-      
       </div>
+    </div>
+  </div>
 
     </div>
     <!-- /.row -->

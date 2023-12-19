@@ -4,7 +4,7 @@ const dataMapper = {
 
     
 
-    async getallFigurines(){
+    async getAllFigurines(){
         const sqlQuery = await client.query ('SELECT * FROM "figurine";');
         return sqlQuery.rows;
     },
