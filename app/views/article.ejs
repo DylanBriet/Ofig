@@ -1,0 +1,87 @@
+<%- include('./partials/header.ejs') %>
+
+
+<%- include('./partials/leftMenu.ejs') %>
+
+<div class="col-lg-9">
+
+  <div class="row">
+    <div class="col-lg-6">
+      <img class="" src="/images/<%= article.name.toLowerCase() %>.png" alt="<%= article.name %>">
+    </div>
+  
+    <div class="col-lg-6">
+      <div class="card">
+        <div class="card-body">
+            <h3 class="card-title">
+              <%= article.name %>
+              <div class="badge badge-pill <%= article.category === 'Méchant' ? 'badge-méchant' : 'badge-gentil' %>"><%= article.category %></div>
+            </h3>
+            <p class="card-text"><%= article.size %></p>
+            <p class="card-text"><%= article.description %></p>
+            <p class="card-text">
+              Note moyenne : &#9733; &#9733; &#9733; &#9733; &#9734;
+              <br>
+              <a href="#" data-toggle="modal" data-target="#reviewsModal">Détails des avis</a>
+            </p>
+            <h5>$<%= article.price %></h5>
+            <p class="card-text">
+              <a href="/bookmarks/add/<%= article.id %>" class="link-add-bookmarks">+ Ajouter aux favoris</a>
+            </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+    </div>
+    <!-- /.row -->
+
+  </div>
+  <!-- /.col-lg-9 -->
+
+</div>
+<!-- /.row -->
+
+</div>
+<!-- /.container -->
+
+<!-- Modale des avis -->
+<div class="modal fade" id="reviewsModal" tabindex="-1" role="dialog" aria-labelledby="reviewsModalLabel" aria-hidden="true">
+<div class="modal-dialog" role="document">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h3 class="modal-title" id="reviewsModalLabel">Avis des internautes</h3>
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+
+      <% reviews.forEach(review => { %>
+        <% if (review.figurine_id === article.id) { %>
+          <section>
+            <h5><%= review.title %> &nbsp; <small class="text-muted">
+              <% for (let i = 1; i <= 5; i++) { %>
+                <% if (i <= review.note) { %>
+                  &#9733; <!-- étoile pleine pour la note attribuée -->
+                <% } else { %>
+                  &#9734; <!-- étoile vide pour la note restante -->
+                <% } %>
+              <% } %>
+            </small></h5>
+            <p class="review-author">par <%= review.author %></p>
+            <p><%= review.message %></p>
+          </section>
+        <% } %>
+      <% }) %>
+
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+    </div>
+  </div>
+</div>
+</div>
+
+
+<%- include('./partials/footer.ejs') %>

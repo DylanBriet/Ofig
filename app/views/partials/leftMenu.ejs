@@ -1,0 +1,20 @@
+  <!-- Page Content -->
+  <div class="container container-main">
+
+    <div class="row">
+
+      <div class="col-lg-3">
+
+        <h1 class="my-4">O'Fig</h1>
+        
+        <h5>Catégories</h5>
+        <div class="list-group">
+          <% categoriesCount.forEach(category => { %>
+            <a class="list-group-item d-flex justify-content-between align-items-center" href="/category/<%= category.category %>">
+              Les <%= category.category %>
+              <span class="badge badge-primary badge-pill"><%= category.count %></span>
+            </a>
+          <% }) %>
+        </div>
+
+      </div>
