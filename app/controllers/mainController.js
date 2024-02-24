@@ -13,7 +13,7 @@ const mainController = {
       // Associer chaque score moyen à la figurine correspondante
       figurines = figurines.map(figurine => {
         const averageScore = averageScores.find(score => score.figurine_id === figurine.id);
-        figurine.average_score = averageScore ? averageScore.average_score.toFixed(2) : 'N/A';
+        figurine.average_score = averageScore ? averageScore.average_score.toFixed(1) : 'N/A';
         return figurine;
       });
   
