@@ -1,23 +1,26 @@
-{
-  "name": "s04-ofig-atelier-billynguyen1",
-  "version": "1.0.0",
-  "description": "## Étape 1: Mise en place",
-  "main": "index.js",
-  "scripts": {
-    "dev": "node --watch index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "dotenv": "^16.3.1",
-    "ejs": "^3.1.9",
-    "express": "^4.18.2",
-    "express-session": "^1.17.3",
-    "pg": "^8.11.3"
-  },
+
+  {
+    "name": "s04-ofig-atelier-billynguyen1",
+    "version": "1.0.0",
+    "description": "## Étape 1: Mise en place",
+    "main": "index.js",
+    "scripts": {
+      "dev": "node --watch index.js",
+      "test": "echo \"Error: no test specified\" && exit 1",
+      "deploy": "gh-pages -d ."
+    },
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+      "dotenv": "^16.3.1",
+      "ejs": "^3.1.9",
+      "express": "^4.18.2",
+      "express-session": "^1.17.3",
+      "gh-pages": "^6.1.1",
+      "pg": "^8.11.3"
+    },
   "directories": {
     "test": "test"
-  }
+  },
+  "homepage": "https://dylanbriet.github.io/Ofig"
 }
